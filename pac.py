@@ -6,7 +6,7 @@ class visualization:
 
     
     def __init__(self, file='map.txt'):
-        self.file="map.txt"
+        self.file= file
         self.map = []
         with open(file) as f:
                     for line in f:
