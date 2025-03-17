@@ -3,7 +3,12 @@ import pygame
 class visualization:
     BLOCK_SIZE = 32
     TITLE = 'Pac-Man'
-
+    assets = {
+            '%': pygame.image.load('graphic_assets/wall.png'),
+            'O': pygame.image.load('graphic_assets/power.png'),
+            '.': pygame.image.load('graphic_assets/feast.png'),
+            'P': pygame.image.load('graphic_assets/pac.png'),}
+        
     
     def __init__(self, file='map.txt'):
         self.file= file
@@ -18,17 +23,12 @@ class visualization:
         HEIGHT =len(self.map)*self.BLOCK_SIZE
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
     def draw(self):
-        assets = {
-            '%': pygame.image.load('graphic_assets/wall.png'),
-            'O': pygame.image.load('graphic_assets/power.png'),
-            '.': pygame.image.load('graphic_assets/feast.png'),
-            'P': pygame.image.load('graphic_assets/pac.png'),}
         
         for y, row in enumerate(self.map):
             for x, block in enumerate(row):
-                image = assets.get(block, None)
+                image = self.assets.get(block, None)
                 if image:
-                    self.screen.blit(assets[block], (x*self.BLOCK_SIZE, y*self.BLOCK_SIZE))
+                    self.screen.blit(self.assets[block], (x*self.BLOCK_SIZE, y*self.BLOCK_SIZE))
 
 
 
