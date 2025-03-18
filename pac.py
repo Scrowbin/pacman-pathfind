@@ -10,15 +10,10 @@ class visualization:
             'P': pygame.image.load('graphic_assets/pac.png'),}
         
     
-    def __init__(self, file='map.txt'):
-        self.file= file
-        self.map = []
-        with open(file) as f:
-                    for line in f:
-                        row = []
-                        for block in line:
-                            row.append(block)
-                        self.map.append(row)
+    def __init__(self, map = []):
+        
+        self.map = map
+        
         WIDTH = len(self.map[0])*self.BLOCK_SIZE
         HEIGHT =len(self.map)*self.BLOCK_SIZE
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
@@ -44,23 +39,8 @@ class visualization:
                 if event.type == pygame.QUIT:
                     playing = False
             pygame.display.flip()
-            
-
-
-# WORLD_SIZE = 28
 
 
 kaizen = visualization()
 kaizen.play()
-# wallTextures = {
-#      'horizontal': pygame.image.load('graphic_assets/wall.png'),
-#      'vertical' : pygame.image.load('graphic_assets/wall2.png'),
-# }
-
-
-
-# dynamically assigning resolution
-
-
-# 
 
