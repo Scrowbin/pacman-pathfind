@@ -57,8 +57,9 @@ class main:
         return state
     def expand(self, state):
         moves = ['L', 'R', 'U', 'D']
+        childrens = []
         for m in moves:
-            state.go(m, state)
+            childrens.append(state.go(m, state))
         
 
     def AStarAlgo(self):
