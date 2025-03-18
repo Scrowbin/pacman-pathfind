@@ -29,7 +29,7 @@ class visualization:
 
     def play(self):
         
-        pygame.init()
+        pygame.init()   
         pygame.display.set_caption(self.TITLE)
         playing = True
         while playing:
